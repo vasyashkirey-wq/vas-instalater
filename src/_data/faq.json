@@ -1,0 +1,42 @@
+[
+  {
+    "otazka_cz": "Jak rychle můžete přijet?",
+    "odpoved_cz": "Obvykle ještě v den objednání nebo následující den. U havárie co nejdříve — čas příjezdu vám řekneme hned do telefonu.",
+    "otazka_ua": "Як швидко ви можете приїхати?",
+    "odpoved_ua": "Зазвичай у день звернення або наступного дня. При аварії — якнайшвидше, час приїзду скажемо одразу по телефону.",
+    "otazka_en": "How fast can you come?",
+    "odpoved_en": "Usually the same day or the next day. For emergencies as soon as we can — we'll tell you our arrival time on the phone."
+  },
+  {
+    "otazka_cz": "Kolik stojí výjezd a prohlídka?",
+    "odpoved_cz": "Výjezd po Praze účtujeme podle ceníku. Pokud si práci objednáte, je výjezd v ceně. Odhad ceny z fotky je zdarma.",
+    "otazka_ua": "Скільки коштує виїзд і огляд?",
+    "odpoved_ua": "Виїзд по Празі — за прайсом. Якщо ви замовляєте роботу, виїзд входить у ціну. Оцінка по фото безкоштовна.",
+    "otazka_en": "How much is the call-out and inspection?",
+    "odpoved_en": "The call-out within Prague is charged according to the price list. If you order the job, the call-out is included. A quote from a photo is free."
+  },
+  {
+    "otazka_cz": "Vezete s sebou materiál a díly?",
+    "odpoved_cz": "Ano, běžné díly máme v autě. Baterii, WC nebo bojler můžeme nakoupit za vás, nebo namontujeme váš.",
+    "otazka_ua": "Ви привозите матеріал і деталі?",
+    "odpoved_ua": "Так, стандартні деталі маємо в авто. Змішувач, унітаз чи бойлер можемо купити за вас або встановити ваш.",
+    "otazka_en": "Do you bring materials and parts?",
+    "odpoved_en": "Yes, we carry common parts in the van. We can buy a tap, toilet or water heater for you, or install the one you bought."
+  },
+  {
+    "otazka_cz": "Dáváte záruku a fakturu?",
+    "odpoved_cz": "Ano, na práci dáváme záruku a fakturu vystavujeme fyzickým osobám, firmám i SVJ.",
+    "otazka_ua": "Чи даєте гарантію і fakturu?",
+    "odpoved_ua": "Так, на роботу даємо гарантію, fakturu виставляємо приватним особам, фірмам і SVJ.",
+    "otazka_en": "Do you give a warranty and invoice?",
+    "odpoved_en": "Yes, we give a warranty on our work and issue invoices to individuals, companies and SVJ (housing associations)."
+  },
+  {
+    "otazka_cz": "Pracujete o víkendu?",
+    "odpoved_cz": "V sobotu ano. V neděli a o svátcích jen havarijní výjezdy po domluvě.",
+    "otazka_ua": "Чи працюєте у вихідні?",
+    "odpoved_ua": "У суботу — так. У неділю та свята — тільки аварійні виклики за домовленістю.",
+    "otazka_en": "Do you work at weekends?",
+    "odpoved_en": "On Saturdays, yes. On Sundays and public holidays only emergency call-outs by arrangement."
+  }
+]

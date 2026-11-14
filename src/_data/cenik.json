@@ -1,0 +1,65 @@
+[
+  {
+    "polozka_cz": "Výjezd po Praze",
+    "polozka_ua": "Виїзд по Празі",
+    "polozka_en": "Call-out within Prague",
+    "cena": "",
+    "od": false
+  },
+  {
+    "polozka_cz": "Hodinová sazba",
+    "polozka_ua": "Година роботи",
+    "polozka_en": "Hourly rate",
+    "cena": "",
+    "od": false
+  },
+  {
+    "polozka_cz": "Výměna baterie",
+    "polozka_ua": "Заміна змішувача",
+    "polozka_en": "Tap replacement",
+    "cena": "",
+    "od": true
+  },
+  {
+    "polozka_cz": "Výměna sifonu",
+    "polozka_ua": "Заміна сифону",
+    "polozka_en": "Trap replacement",
+    "cena": "",
+    "od": true
+  },
+  {
+    "polozka_cz": "Montáž WC",
+    "polozka_ua": "Встановлення унітазу",
+    "polozka_en": "Toilet installation",
+    "cena": "",
+    "od": true
+  },
+  {
+    "polozka_cz": "Montáž předstěnového systému Geberit",
+    "polozka_ua": "Монтаж інсталяції Geberit",
+    "polozka_en": "Geberit concealed frame installation",
+    "cena": "",
+    "od": true
+  },
+  {
+    "polozka_cz": "Čištění odpadu",
+    "polozka_ua": "Прочищення засору",
+    "polozka_en": "Drain clearing",
+    "cena": "",
+    "od": true
+  },
+  {
+    "polozka_cz": "Instalace bojleru",
+    "polozka_ua": "Встановлення бойлера",
+    "polozka_en": "Water heater installation",
+    "cena": "",
+    "od": true
+  },
+  {
+    "polozka_cz": "Zapojení pračky nebo myčky",
+    "polozka_ua": "Підключення пральної чи посудомийної машини",
+    "polozka_en": "Washing machine or dishwasher hook-up",
+    "cena": "",
+    "od": true
+  }
+]

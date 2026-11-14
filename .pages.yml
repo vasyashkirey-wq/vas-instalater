@@ -1,0 +1,256 @@
+# Pages CMS — адмінка сайту Váš Instalatér (https://pagescms.org)
+# Кожен розділ нижче — окрема сторінка в адмінці.
+# Поля _cz / _ua / _en — тексти для чеської, української й англійської версій.
+# Якщо англійське поле порожнє, на англійській версії показується чеський текст.
+# У «Тексти сайту» порожнє поле = стандартний текст сайту.
+
+media:
+  input: src/uploads
+  output: /uploads
+
+content:
+  - name: kontakty
+    label: Контакти та основне
+    type: file
+    path: src/_data/kontakty.json
+    format: json
+    fields:
+      - { name: telefon, label: "Телефон (як показувати)", type: string, required: true, description: "Наприклад: +420 777 123 456" }
+      - { name: email, label: "Email", type: string, required: true }
+      - { name: whatsapp, label: "Показувати WhatsApp", type: boolean, default: true }
+      - { name: viber, label: "Показувати Viber", type: boolean, default: true }
+      - { name: telegram, label: "Telegram нік", type: string, description: "Порожньо — кнопка не показується" }
+      - { name: mluvim_anglicky, label: "Я говорю англійською", type: boolean, default: false, description: "Якщо вимкнено, англійська версія пише: «говоримо чеською, українською, російською — пишіть англійською»" }
+      - { name: hodiny_cz, label: "Години роботи (чеською)", type: string }
+      - { name: hodiny_ua, label: "Години роботи (українською)", type: string }
+      - { name: hodiny_en, label: "Години роботи (англійською)", type: string }
+      - { name: foto_hlavni, label: "Головне фото (біля форми)", type: image, description: "Можна завантажувати прямо з телефону — сайт сам зменшить фото" }
+      - { name: zaruka_mesicu, label: "Гарантія, місяців", type: string }
+      - { name: let_praxe, label: "Років досвіду", type: string, description: "Порожньо — не показується" }
+      - { name: pocet_zakazek, label: "Кількість виконаних замовлень", type: string, description: "Порожньо — не показується" }
+      - { name: google_hodnoceni, label: "Рейтинг на Google", type: string, description: "Наприклад 4,9. Порожньо — не показується" }
+      - { name: pocet_recenzi, label: "Кількість відгуків на Google", type: string }
+      - { name: pojisteni_castka, label: "Страхування відповідальності, Kč", type: string, description: "Порожньо — блок не показується" }
+      - { name: vyjezd_cena, label: "Ціна виїзду по Празі, Kč", type: string }
+      - { name: oblasti, label: "Райони, де працюєте", type: string, list: true }
+      - { name: jmeno_prijmeni, label: "Імʼя та прізвище (для футера і юридичних сторінок)", type: string }
+      - { name: ico, label: "IČO", type: string }
+      - { name: adresa_sidla, label: "Адреса сідла", type: string }
+      - { name: platce_dph, label: "Я платник ПДВ (DPH)", type: boolean, default: false }
+      - { name: web3forms_klic, label: "Ключ Web3Forms (заявки на email)", type: string, description: "З сайту web3forms.com" }
+      - { name: umami_id, label: "Umami Website ID (статистика)", type: string, description: "З cloud.umami.is. Порожньо — статистика вимкнена" }
+
+  - name: texty
+    label: Тексти сайту
+    type: file
+    path: src/_data/texty.json
+    format: json
+    fields:
+      - name: cz
+        label: "Чеською"
+        type: object
+        fields:
+          - { name: nadpis, label: "Великий заголовок на головній", type: string }
+          - { name: podnadpis, label: "Текст під заголовком", type: text }
+          - { name: upozorneni, label: "Жовта смужка «Тече вода?» (без номера, номер додається сам)", type: string }
+          - { name: horni_lista, label: "Верхня смужка після годин роботи", type: string }
+          - { name: tl_zavolat, label: "Кнопка «Зателефонувати»", type: string }
+          - { name: tl_whatsapp, label: "Кнопка «Фото у WhatsApp»", type: string }
+          - { name: tl_objednat, label: "Кнопка в шапці «Замовити виїзд»", type: string }
+          - { name: rychla_poptavka, label: "Заголовок швидкої заявки", type: string }
+          - { name: tl_zavolejte_zpet, label: "Кнопка швидкої заявки", type: string }
+          - { name: duvera_cena_nadpis, label: "Пункт довіри 1 — заголовок", type: string }
+          - { name: duvera_cena_text, label: "Пункт довіри 1 — текст", type: string }
+          - { name: duvera_faktura_nadpis, label: "Пункт довіри 3 — заголовок", type: string }
+          - { name: duvera_faktura_text, label: "Пункт довіри 3 — текст", type: string }
+          - { name: sluzby_nadpis, label: "Заголовок розділу «Послуги»", type: string }
+          - { name: postup_nadpis, label: "Заголовок «Як ми працюємо»", type: string }
+          - name: kroky
+            label: "Кроки «Як ми працюємо»"
+            type: object
+            list: true
+            fields:
+              - { name: nadpis, label: "Назва кроку", type: string }
+              - { name: text, label: "Опис кроку", type: text }
+          - { name: cenik_nadpis, label: "Заголовок прайсу", type: string }
+          - { name: cenik_text, label: "Текст біля прайсу", type: text }
+          - { name: platba, label: "Способи оплати", type: string }
+          - { name: platba_firmy, label: "Оплата для фірм", type: string }
+          - { name: omne_nadpis, label: "Заголовок «Хто до вас приїде»", type: string }
+          - { name: kontakt_nadpis, label: "Заголовок блоку контактів", type: string }
+          - { name: formular_nadpis, label: "Заголовок форми заявки", type: string }
+          - { name: tl_odeslat, label: "Кнопка «Надіслати заявку»", type: string }
+          - { name: sluzba_vyzva, label: "Текст заклику на сторінках послуг", type: text }
+          - { name: seo_titulek, label: "Назва сторінки в Google (до ~60 знаків)", type: string }
+          - { name: seo_popis, label: "Опис у Google (до ~155 знаків)", type: text }
+      - name: ua
+        label: "Українською"
+        type: object
+        fields:
+          - { name: nadpis, label: "Великий заголовок на головній", type: string }
+          - { name: podnadpis, label: "Текст під заголовком", type: text }
+          - { name: upozorneni, label: "Жовта смужка «Тече вода?» (без номера, номер додається сам)", type: string }
+          - { name: horni_lista, label: "Верхня смужка після годин роботи", type: string }
+          - { name: tl_zavolat, label: "Кнопка «Зателефонувати»", type: string }
+          - { name: tl_whatsapp, label: "Кнопка «Фото у WhatsApp»", type: string }
+          - { name: tl_objednat, label: "Кнопка в шапці «Замовити виїзд»", type: string }
+          - { name: rychla_poptavka, label: "Заголовок швидкої заявки", type: string }
+          - { name: tl_zavolejte_zpet, label: "Кнопка швидкої заявки", type: string }
+          - { name: duvera_cena_nadpis, label: "Пункт довіри 1 — заголовок", type: string }
+          - { name: duvera_cena_text, label: "Пункт довіри 1 — текст", type: string }
+          - { name: duvera_faktura_nadpis, label: "Пункт довіри 3 — заголовок", type: string }
+          - { name: duvera_faktura_text, label: "Пункт довіри 3 — текст", type: string }
+          - { name: sluzby_nadpis, label: "Заголовок розділу «Послуги»", type: string }
+          - { name: postup_nadpis, label: "Заголовок «Як ми працюємо»", type: string }
+          - name: kroky
+            label: "Кроки «Як ми працюємо»"
+            type: object
+            list: true
+            fields:
+              - { name: nadpis, label: "Назва кроку", type: string }
+              - { name: text, label: "Опис кроку", type: text }
+          - { name: cenik_nadpis, label: "Заголовок прайсу", type: string }
+          - { name: cenik_text, label: "Текст біля прайсу", type: text }
+          - { name: platba, label: "Способи оплати", type: string }
+          - { name: platba_firmy, label: "Оплата для фірм", type: string }
+          - { name: omne_nadpis, label: "Заголовок «Хто до вас приїде»", type: string }
+          - { name: kontakt_nadpis, label: "Заголовок блоку контактів", type: string }
+          - { name: formular_nadpis, label: "Заголовок форми заявки", type: string }
+          - { name: tl_odeslat, label: "Кнопка «Надіслати заявку»", type: string }
+          - { name: sluzba_vyzva, label: "Текст заклику на сторінках послуг", type: text }
+          - { name: seo_titulek, label: "Назва сторінки в Google (до ~60 знаків)", type: string }
+          - { name: seo_popis, label: "Опис у Google (до ~155 знаків)", type: text }
+      - name: en
+        label: "Англійською"
+        type: object
+        fields:
+          - { name: nadpis, label: "Великий заголовок на головній", type: string }
+          - { name: podnadpis, label: "Текст під заголовком", type: text }
+          - { name: upozorneni, label: "Жовта смужка «Тече вода?» (без номера, номер додається сам)", type: string }
+          - { name: horni_lista, label: "Верхня смужка після годин роботи", type: string }
+          - { name: tl_zavolat, label: "Кнопка «Зателефонувати»", type: string }
+          - { name: tl_whatsapp, label: "Кнопка «Фото у WhatsApp»", type: string }
+          - { name: tl_objednat, label: "Кнопка в шапці «Замовити виїзд»", type: string }
+          - { name: rychla_poptavka, label: "Заголовок швидкої заявки", type: string }
+          - { name: tl_zavolejte_zpet, label: "Кнопка швидкої заявки", type: string }
+          - { name: duvera_cena_nadpis, label: "Пункт довіри 1 — заголовок", type: string }
+          - { name: duvera_cena_text, label: "Пункт довіри 1 — текст", type: string }
+          - { name: duvera_faktura_nadpis, label: "Пункт довіри 3 — заголовок", type: string }
+          - { name: duvera_faktura_text, label: "Пункт довіри 3 — текст", type: string }
+          - { name: sluzby_nadpis, label: "Заголовок розділу «Послуги»", type: string }
+          - { name: postup_nadpis, label: "Заголовок «Як ми працюємо»", type: string }
+          - name: kroky
+            label: "Кроки «Як ми працюємо»"
+            type: object
+            list: true
+            fields:
+              - { name: nadpis, label: "Назва кроку", type: string }
+              - { name: text, label: "Опис кроку", type: text }
+          - { name: cenik_nadpis, label: "Заголовок прайсу", type: string }
+          - { name: cenik_text, label: "Текст біля прайсу", type: text }
+          - { name: platba, label: "Способи оплати", type: string }
+          - { name: platba_firmy, label: "Оплата для фірм", type: string }
+          - { name: omne_nadpis, label: "Заголовок «Хто до вас приїде»", type: string }
+          - { name: kontakt_nadpis, label: "Заголовок блоку контактів", type: string }
+          - { name: formular_nadpis, label: "Заголовок форми заявки", type: string }
+          - { name: tl_odeslat, label: "Кнопка «Надіслати заявку»", type: string }
+          - { name: sluzba_vyzva, label: "Текст заклику на сторінках послуг", type: text }
+          - { name: seo_titulek, label: "Назва сторінки в Google (до ~60 знаків)", type: string }
+          - { name: seo_popis, label: "Опис у Google (до ~155 знаків)", type: text }
+
+  - name: omne
+    label: Про мене
+    type: file
+    path: src/_data/omne.json
+    format: json
+    fields:
+      - { name: jmeno, label: "Імʼя", type: string }
+      - { name: foto, label: "Ваше фото", type: image, description: "Порожньо — показується велика літера імені" }
+      - { name: text_cz, label: "Текст (чеською)", type: text, description: "Абзаци розділяйте порожнім рядком" }
+      - { name: text_ua, label: "Текст (українською)", type: text }
+      - { name: text_en, label: "Текст (англійською)", type: text }
+
+  - name: sluzby
+    label: Послуги
+    type: file
+    path: src/_data/sluzby.json
+    format: json
+    list: true
+    fields:
+      - { name: slug, label: "Адреса сторінки", type: string, required: true, description: "Латиницею, без пробілів: cisteni-odpadu. Після запуску краще не змінювати" }
+      - { name: cena, label: "Ціна від, Kč", type: string, description: "Тільки число, напр. 590. Або текст, напр. «dle rozpočtu». Порожньо — «na dotaz»" }
+      - { name: nazev_cz, label: "Назва (чеською)", type: string, required: true }
+      - { name: popis_cz, label: "Короткий опис (чеською)", type: text }
+      - { name: text_cz, label: "Текст сторінки (чеською)", type: text, description: "Абзаци розділяйте порожнім рядком" }
+      - { name: body_cz, label: "Що робимо — пункти (чеською)", type: string, list: true }
+      - { name: nazev_ua, label: "Назва (українською)", type: string }
+      - { name: popis_ua, label: "Короткий опис (українською)", type: text }
+      - { name: text_ua, label: "Текст сторінки (українською)", type: text }
+      - { name: body_ua, label: "Що робимо — пункти (українською)", type: string, list: true }
+      - { name: nazev_en, label: "Назва (англійською)", type: string }
+      - { name: popis_en, label: "Короткий опис (англійською)", type: text }
+      - { name: text_en, label: "Текст сторінки (англійською)", type: text }
+      - { name: body_en, label: "Що робимо — пункти (англійською)", type: string, list: true }
+
+  - name: cenik
+    label: Прайс
+    type: file
+    path: src/_data/cenik.json
+    format: json
+    list: true
+    fields:
+      - { name: polozka_cz, label: "Послуга (чеською)", type: string, required: true }
+      - { name: polozka_ua, label: "Послуга (українською)", type: string }
+      - { name: polozka_en, label: "Послуга (англійською)", type: string }
+      - { name: cena, label: "Ціна, Kč", type: string, description: "Тільки число, напр. 590. Порожньо — «na dotaz»" }
+      - { name: od, label: "Показувати «від»", type: boolean, default: true }
+
+  - name: realizace
+    label: Роботи до/після
+    type: file
+    path: src/_data/realizace.json
+    format: json
+    list: true
+    fields:
+      - { name: nazev_cz, label: "Що зроблено (чеською)", type: string, required: true }
+      - { name: nazev_ua, label: "Що зроблено (українською)", type: string }
+      - { name: nazev_en, label: "Що зроблено (англійською)", type: string }
+      - { name: misto, label: "Район і час", type: string, description: "Наприклад: Praha 5 · 2 dny" }
+      - { name: foto_pred, label: "Фото ДО", type: image }
+      - { name: foto_po, label: "Фото ПІСЛЯ", type: image }
+
+  - name: recenze
+    label: Відгуки
+    type: file
+    path: src/_data/recenze.json
+    format: json
+    list: true
+    fields:
+      - { name: jmeno, label: "Імʼя клієнта", type: string, required: true }
+      - { name: misto, label: "Район", type: string }
+      - { name: text, label: "Текст відгуку (як написав клієнт)", type: text, required: true }
+      - { name: hvezdy, label: "Зірок", type: number, default: 5, options: { min: 1, max: 5 } }
+
+  - name: faq
+    label: Часті питання
+    type: file
+    path: src/_data/faq.json
+    format: json
+    list: true
+    fields:
+      - { name: otazka_cz, label: "Питання (чеською)", type: string, required: true }
+      - { name: odpoved_cz, label: "Відповідь (чеською)", type: text }
+      - { name: otazka_ua, label: "Питання (українською)", type: string }
+      - { name: odpoved_ua, label: "Відповідь (українською)", type: text }
+      - { name: otazka_en, label: "Питання (англійською)", type: string }
+      - { name: odpoved_en, label: "Відповідь (англійською)", type: text }
+
+  - name: gdpr
+    label: Юридичні сторінки
+    type: file
+    path: src/_data/gdpr.json
+    format: json
+    fields:
+      - { name: platne_od, label: "Діє з (дата) — для GDPR і reklamační řád", type: string }
+      - { name: mazani_mesicu, label: "Видаляти заявки без замовлення через, місяців", type: number }
+      - { name: zpracovatele, label: "Сервіси, що обробляють дані", type: string, list: true, description: "Приберіть Telegram, якщо не підключали сповіщення" }

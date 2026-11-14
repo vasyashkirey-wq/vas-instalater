@@ -1,0 +1,140 @@
+{
+  "cz": {
+    "seo_titulek": "Váš Instalatér – instalatér v Praze | opravy, montáž, havárie vody",
+    "seo_popis": "Instalatér v Praze: výměna baterií a WC, čištění odpadů, bojlery, havárie vody, koupelny na klíč. Cena předem, záruka, faktura.",
+    "horni_lista": "havarijní výjezdy po domluvě",
+    "upozorneni": "Teče vám voda? Zavřete hlavní uzávěr a volejte",
+    "nadpis": "Instalatér v Praze — přijedeme dnes nebo zítra",
+    "podnadpis": "Opravy a montáž sanitární techniky v bytech, domech i kancelářích. Cenu odsouhlasíme předem, na práci dáváme záruku a vystavíme fakturu.",
+    "tl_zavolat": "Zavolat",
+    "tl_whatsapp": "Poslat fotku přes WhatsApp",
+    "tl_objednat": "Objednat výjezd",
+    "rychla_poptavka": "Rychlá poptávka — zavoláme zpět",
+    "tl_zavolejte_zpet": "Zavolejte mi zpět",
+    "sluzby_nadpis": "Od kapající baterie po novou koupelnu",
+    "postup_nadpis": "Jak pracujeme",
+    "cenik_nadpis": "Férové ceny bez překvapení",
+    "cenik_text": "Ceny jsou za práci, bez materiálu. Přesnou částku řekneme po prohlídce nebo podle fotky — a bez vašeho souhlasu se nezmění.",
+    "platba": "Hotově · kartou · převodem · QR platba",
+    "platba_firmy": "Pro firmy a SVJ faktura se splatností",
+    "omne_nadpis": "Kdo k vám přijede",
+    "kontakt_nadpis": "Potřebujete instalatéra? Jsme na příjmu.",
+    "formular_nadpis": "Popište, co potřebujete",
+    "tl_odeslat": "Odeslat poptávku",
+    "sluzba_vyzva": "Pošlete fotku nebo zavolejte — orientační cenu řekneme hned.",
+    "duvera_cena_nadpis": "Cena předem",
+    "duvera_cena_text": "Částku odsouhlasíte před začátkem práce",
+    "duvera_faktura_nadpis": "Faktura a IČO",
+    "duvera_faktura_text": "Pro domácnosti, firmy i SVJ",
+    "kroky": [
+      {
+        "nadpis": "Kontakt",
+        "text": "Zavolejte, napište nebo pošlete fotku problému do messengeru."
+      },
+      {
+        "nadpis": "Odhad ceny",
+        "text": "Orientační cenu řekneme hned, přesnou po prohlídce."
+      },
+      {
+        "nadpis": "Provedení",
+        "text": "Přijedeme včas, pracujeme čistě a po sobě uklidíme."
+      },
+      {
+        "nadpis": "Kontrola a platba",
+        "text": "Vše společně zkontrolujeme, platíte až po práci."
+      }
+    ]
+  },
+  "ua": {
+    "seo_titulek": "Váš Instalatér – сантехнік у Празі | ремонт, монтаж, аварії",
+    "seo_popis": "Сантехнік у Празі, говоримо українською: заміна змішувачів і унітазів, засори, бойлери, аварії, ванна під ключ. Ціна наперед, гарантія, faktura.",
+    "horni_lista": "аварійні виїзди за домовленістю",
+    "upozorneni": "Тече зараз? Перекрийте головний кран і телефонуйте",
+    "nadpis": "Сантехнік у Празі — приїдемо сьогодні або завтра",
+    "podnadpis": "Ремонт і монтаж сантехніки в квартирах, будинках та офісах. Ціну погоджуємо до початку робіт, на роботу даємо гарантію і виставляємо fakturu.",
+    "tl_zavolat": "Зателефонувати",
+    "tl_whatsapp": "Надіслати фото у WhatsApp",
+    "tl_objednat": "Замовити виїзд",
+    "rychla_poptavka": "Швидка заявка — передзвонимо",
+    "tl_zavolejte_zpet": "Передзвоніть мені",
+    "sluzby_nadpis": "Від капаючого крана до нової ванної",
+    "postup_nadpis": "Як ми працюємо",
+    "cenik_nadpis": "Прозорий прайс без сюрпризів",
+    "cenik_text": "Ціни вказані за роботу, без матеріалу. Точну суму називаємо після огляду або по фото — і без вашої згоди вона не зміниться.",
+    "platba": "Готівка · картка · переказ · QR-платба",
+    "platba_firmy": "Для фірм і SVJ — faktura з відстрочкою",
+    "omne_nadpis": "Хто до вас приїде",
+    "kontakt_nadpis": "Потрібен сантехнік? Ми на звʼязку.",
+    "formular_nadpis": "Опишіть задачу",
+    "tl_odeslat": "Надіслати заявку",
+    "sluzba_vyzva": "Надішліть фото або зателефонуйте — орієнтовну ціну скажемо одразу.",
+    "duvera_cena_nadpis": "Ціна наперед",
+    "duvera_cena_text": "Погоджуємо суму до початку робіт",
+    "duvera_faktura_nadpis": "Faktura та IČO",
+    "duvera_faktura_text": "Для людей, фірм і SVJ",
+    "kroky": [
+      {
+        "nadpis": "Звʼязок",
+        "text": "Дзвінок, повідомлення або фото проблеми в месенджер."
+      },
+      {
+        "nadpis": "Оцінка ціни",
+        "text": "Орієнтовну суму називаємо одразу, точну — після огляду."
+      },
+      {
+        "nadpis": "Виконання",
+        "text": "Приїжджаємо вчасно, працюємо акуратно, прибираємо за собою."
+      },
+      {
+        "nadpis": "Перевірка та оплата",
+        "text": "Перевіряємо все разом із вами, оплата після роботи."
+      }
+    ]
+  },
+  "en": {
+    "seo_titulek": "Váš Instalatér – plumber in Prague | repairs, installation, leaks",
+    "seo_popis": "Plumber in Prague: taps and toilets, blocked drains, water heaters, leaks and bathroom refits. Fixed price agreed up front, warranty, invoice.",
+    "horni_lista": "emergency call-outs by arrangement",
+    "upozorneni": "Water leaking? Shut off the main valve and call",
+    "nadpis": "Plumber in Prague — at your door today or tomorrow",
+    "podnadpis": "Plumbing repairs and installation for flats, houses and offices. We agree the price before we start, give a warranty on our work and issue a proper invoice.",
+    "tl_zavolat": "Call now",
+    "tl_whatsapp": "Send a photo on WhatsApp",
+    "tl_objednat": "Book a visit",
+    "rychla_poptavka": "Quick request — we'll call you back",
+    "tl_zavolejte_zpet": "Call me back",
+    "sluzby_nadpis": "From a dripping tap to a new bathroom",
+    "postup_nadpis": "How we work",
+    "cenik_nadpis": "Clear prices, no surprises",
+    "cenik_text": "Prices are for labour, materials not included. We confirm the exact amount after inspection or from a photo, and it won't change without your approval.",
+    "platba": "Cash · card · bank transfer · QR payment",
+    "platba_firmy": "Invoices with payment terms for companies and SVJ",
+    "omne_nadpis": "Who will come to your door",
+    "kontakt_nadpis": "Need a plumber? We're here.",
+    "formular_nadpis": "Tell us what you need",
+    "tl_odeslat": "Send request",
+    "sluzba_vyzva": "Send a photo or call us — we'll give you a rough price straight away.",
+    "duvera_cena_nadpis": "Price up front",
+    "duvera_cena_text": "You approve the amount before work starts",
+    "duvera_faktura_nadpis": "Invoice with IČO",
+    "duvera_faktura_text": "For households, companies and SVJ",
+    "kroky": [
+      {
+        "nadpis": "Get in touch",
+        "text": "Call, message or send a photo of the problem."
+      },
+      {
+        "nadpis": "Price estimate",
+        "text": "We give a rough price straight away and an exact one after inspection."
+      },
+      {
+        "nadpis": "The job",
+        "text": "We arrive on time, work cleanly and tidy up after ourselves."
+      },
+      {
+        "nadpis": "Check and pay",
+        "text": "We check everything together; you pay once the job is done."
+      }
+    ]
+  }
+}

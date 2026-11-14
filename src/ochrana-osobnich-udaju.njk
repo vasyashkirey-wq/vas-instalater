@@ -1,0 +1,38 @@
+---
+permalink: /ochrana-osobnich-udaju/
+layout: legal.njk
+title: Zásady ochrany osobních údajů
+sitemap: false
+---
+{%- set k = kontakty -%}
+{%- set tel = k.telefon | digits -%}
+<h2>1. Kdo vaše údaje zpracovává</h2>
+<p>Správcem osobních údajů je {{ k.jmeno_prijmeni }}, IČO {{ k.ico }}, se sídlem {{ k.adresa_sidla }}, podnikající pod označením Váš Instalatér (dále jen „správce“). Kontakt: <a href="mailto:{{ k.email }}">{{ k.email }}</a>, tel. <a href="tel:+{{ tel }}">{{ k.telefon }}</a>.</p>
+
+<h2>2. Jaké údaje zpracováváme</h2>
+<p>Pouze údaje, které nám sami poskytnete prostřednictvím formuláře, telefonu, e-mailu nebo messengeru: jméno, telefonní číslo, adresu místa zakázky, popis požadované práce a případně fotografie problému. Pro vystavení faktury dále fakturační údaje.</p>
+
+<h2>3. Proč a na jakém právním základě</h2>
+<ul>
+  <li><b>Vyřízení poptávky a provedení zakázky</b> — jednání o smlouvě a její plnění (čl. 6 odst. 1 písm. b) GDPR).</li>
+  <li><b>Vystavení a archivace účetních a daňových dokladů</b> — plnění právní povinnosti (čl. 6 odst. 1 písm. c) GDPR).</li>
+  <li><b>Ochrana našich právních nároků</b>, např. při reklamaci — oprávněný zájem (čl. 6 odst. 1 písm. f) GDPR).</li>
+</ul>
+<p>Vaše údaje nepoužíváme k marketingu a neprodáváme je třetím osobám.</p>
+
+<h2>4. Jak dlouho údaje uchováváme</h2>
+<p>Údaje z poptávky, ze které nevznikla zakázka, mažeme nejpozději do {{ gdpr.mazani_mesicu or 6 }} měsíců. Údaje o provedené zakázce uchováváme po dobu záruky a dále po dobu, kterou ukládají právní předpisy pro daňové a účetní doklady.</p>
+
+<h2>5. Kdo k údajům má přístup</h2>
+<p>Údaje zpracovává pouze správce. Technicky nám pomáhají tito zpracovatelé:</p>
+<ul>
+  {%- for z in gdpr.zpracovatele %}<li>{{ z }}</li>{% endfor %}
+  {%- if k.umami_id %}<li>Umami — anonymní statistika návštěvnosti webu bez cookies a bez ukládání IP adres</li>{% endif %}
+</ul>
+
+<h2>6. Cookies</h2>
+<p>Tento web nepoužívá cookies. {% if k.umami_id %}Návštěvnost měříme anonymně nástrojem Umami, který cookies nepoužívá a návštěvníky neidentifikuje. {% endif %}Písma jsou načítána přímo z našeho serveru, nikoli od třetích stran.</p>
+
+<h2>7. Vaše práva</h2>
+<p>Máte právo na přístup ke svým údajům, jejich opravu nebo výmaz, omezení zpracování, přenositelnost a právo vznést námitku proti zpracování založenému na oprávněném zájmu. Svá práva můžete uplatnit e-mailem na <a href="mailto:{{ k.email }}">{{ k.email }}</a>.</p>
+<p>Pokud se domníváte, že zpracováním dochází k porušení předpisů, můžete podat stížnost u Úřadu pro ochranu osobních údajů (<a href="https://uoou.gov.cz">uoou.gov.cz</a>).</p>

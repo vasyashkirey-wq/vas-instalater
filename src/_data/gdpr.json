@@ -1,0 +1,11 @@
+{
+  "platne_od": "",
+  "mazani_mesicu": 6,
+  "zpracovatele": [
+    "Web3Forms — přenos zpráv z webového formuláře na náš e-mail",
+    "Telegram — upozornění na nové poptávky z formuláře",
+    "Cloudflare — hosting webových stránek",
+    "GitHub — úložiště zdrojových souborů webu",
+    "Seznam.cz — e-mailová schránka"
+  ]
+}

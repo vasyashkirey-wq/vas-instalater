@@ -1,0 +1,26 @@
+---
+permalink: /reklamacni-rad/
+layout: legal.njk
+title: Reklamační řád
+sitemap: false
+---
+{%- set k = kontakty -%}
+{%- set tel = k.telefon | digits -%}
+<h2>1. Úvodní ustanovení</h2>
+<p>Tento reklamační řád upravuje postup při uplatnění práv z vadně provedené práce a z vad dodaného materiálu u služeb, které poskytuje {{ k.jmeno_prijmeni }}, IČO {{ k.ico }}, se sídlem {{ k.adresa_sidla }}, podnikající pod označením Váš Instalatér (dále jen „zhotovitel“).</p>
+<p>Práva zákazníka se řídí zejména zákonem č. 89/2012 Sb., občanský zákoník, a u zákazníků-spotřebitelů také zákonem č. 634/1992 Sb., o ochraně spotřebitele. Tento řád vaše zákonná práva nijak neomezuje.</p>
+
+<h2>2. Záruka</h2>
+<p>{% if k.zaruka_mesicu %}Na provedenou práci poskytujeme záruku za jakost v délce {{ k.zaruka_mesicu }} měsíců ode dne předání práce.{% else %}Na provedenou práci poskytujeme záruku za jakost v délce [DOPLNIT] měsíců ode dne předání práce.{% endif %} Na materiál a výrobky, které dodal zhotovitel, odpovídáme podle občanského zákoníku. U výrobků, které si zákazník pořídil sám, se záruka vztahuje na provedenou montáž.</p>
+<p>Záruka se nevztahuje na vady způsobené neodborným zásahem třetí osoby, běžným opotřebením, nesprávným používáním nebo na provizorní opravy, na jejichž dočasnost jsme zákazníka předem upozornili.</p>
+
+<h2>3. Jak reklamovat</h2>
+<p>Vadu prosím oznamte bez zbytečného odkladu poté, co ji zjistíte, a to telefonicky na <a href="tel:+{{ tel }}">{{ k.telefon }}</a> nebo e-mailem na <a href="mailto:{{ k.email }}">{{ k.email }}</a>. Uveďte, o jakou zakázku jde (nejlépe číslo faktury), popište vadu a pokud je to možné, přiložte fotografii.</p>
+<p>Přijetí reklamace vám potvrdíme e-mailem nebo písemně. V potvrzení uvedeme datum uplatnění reklamace, obsah reklamace a požadovaný způsob vyřízení.</p>
+
+<h2>4. Lhůta a způsob vyřízení</h2>
+<p>Reklamaci vyřídíme bez zbytečného odkladu, nejpozději do 30 dnů ode dne jejího uplatnění, pokud se se zákazníkem nedohodneme na delší lhůtě. O vyřízení vystavíme písemné potvrzení.</p>
+<p>Oprávněnou reklamaci vyřídíme především bezplatným odstraněním vady. Pokud to není možné, má zákazník právo na přiměřenou slevu, případně další práva podle zákona.</p>
+
+<h2>5. Mimosoudní řešení sporů</h2>
+<p>Pokud se nám spor se zákazníkem-spotřebitelem nepodaří vyřešit dohodou, má spotřebitel právo obrátit se na subjekt mimosoudního řešení spotřebitelských sporů, kterým je Česká obchodní inspekce, Ústřední inspektorát – oddělení ADR, Štěpánská 15, 120 00 Praha 2, web <a href="https://adr.coi.cz">adr.coi.cz</a>.</p>

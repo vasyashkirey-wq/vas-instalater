@@ -1,0 +1,204 @@
+---
+layout: base.njk
+---
+{%- set tx = t[lang] -%}
+{%- set k = kontakty -%}
+{%- set tel = k.telefon | digits -%}
+{%- set svg_tick %}<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>{% endset -%}
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-text">
+      <div class="chips">
+        {%- if k.google_hodnoceni %}<span class="chip">{{ tx.ratingChip(k.google_hodnoceni, k.pocet_recenzi) }}</span>{% endif %}
+        <span class="chip">{{ tx.langsChip(k.mluvim_anglicky) }}</span>
+      </div>
+      <h1>{{ tx.h1 }}</h1>
+      <p class="lead">{{ tx.lead }}</p>
+      <div class="btns">
+        <a class="btn btn-primary" href="tel:+{{ tel }}" data-umami-event="tel-hero">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+          {{ tx.call }}
+        </a>
+        {%- if k.whatsapp %}
+        <a class="btn btn-ghost" href="https://wa.me/{{ tel }}" data-umami-event="whatsapp-hero">{{ tx.waPhoto }}</a>
+        {%- endif %}
+      </div>
+      <div class="stats">
+        {%- if k.let_praxe %}{% set s = tx.statYears(k.let_praxe) %}<div><b>{{ s[0] }}</b><span>{{ s[1] }}</span></div>{% endif %}
+        {%- if k.pocet_zakazek %}{% set s = tx.statOrders(k.pocet_zakazek) %}<div><b>{{ s[0] }}</b><span>{{ s[1] }}</span></div>{% endif %}
+        <div><b>{{ tx.statFree[0] }}</b><span>{{ tx.statFree[1] }}</span></div>
+      </div>
+    </div>
+
+    <form class="card-form js-form" data-sending="{{ tx.sending }}" data-ok="{{ tx.ok }}" data-err="{{ tx.err(k.telefon) }}">
+      {%- if k.foto_hlavni %}
+      <img class="hero-photo" src="{{ k.foto_hlavni }}" alt="{{ tx.photoAlt }}" sizes="(max-width: 760px) 100vw, 440px" loading="eager">
+      {%- endif %}
+      <h2 style="font-size:21px">{{ tx.quickTitle }}</h2>
+      <input type="hidden" name="access_key" value="{{ k.web3forms_klic }}">
+      <input type="hidden" name="subject" value="{{ tx.subjQuick }}">
+      <input type="hidden" name="stranka" value="{{ page.url }}">
+      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <label>{{ tx.phone }}
+        <input type="tel" name="telefon" placeholder="+420" required autocomplete="tel">
+      </label>
+      <label>{{ tx.what }}
+        <select name="problem">
+          {%- for p in tx.problems %}<option>{{ p }}</option>{% endfor %}
+        </select>
+      </label>
+      <button type="submit" class="btn btn-dark">{{ tx.callMeBack }}</button>
+      <p class="form-status" role="status" aria-live="polite"></p>
+      <p class="muted" style="font-size:12px">{{ tx.consent }} <a href="/ochrana-osobnich-udaju/">{{ tx.consentLink }}</a>{{ tx.consentAfter }}</p>
+    </form>
+  </div>
+</section>
+
+<section class="trust" aria-label="{{ tx.whyUs }}">
+  <div class="wrap">
+    {%- for it in [tx.trust.price, tx.trust.warranty(k.zaruka_mesicu), tx.trust.invoice] %}
+    <div class="trust-item"><span class="tick">{{ svg_tick | safe }}</span><div><b>{{ it[0] }}</b><span>{{ it[1] }}</span></div></div>
+    {%- endfor %}
+    {%- if k.pojisteni_castka %}{% set it = tx.trust.insurance(k.pojisteni_castka) %}
+    <div class="trust-item"><span class="tick">{{ svg_tick | safe }}</span><div><b>{{ it[0] }}</b><span>{{ it[1] }}</span></div></div>
+    {%- endif %}
+  </div>
+</section>
+
+<section class="section" id="sluzby">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow">{{ tx.servicesEyebrow }}</span><h2 class="h2">{{ tx.servicesH }}</h2></div>
+      <a href="#cenik" style="font-weight:700">{{ tx.fullPrice }}</a>
+    </div>
+    <div class="cards">
+      {%- for s in sluzby %}
+      <article class="card card-link">
+        <div class="card-top"><span class="num" aria-hidden="true">{{ ("0" ~ loop.index) if loop.index < 10 else loop.index }}</span><span class="price-tag">{{ s.cena | price(true, tx) }}</span></div>
+        <h3><a href="{{ tx.servicesPath }}{{ s.slug }}/">{{ s | loc("nazev", lang) }}</a></h3>
+        <p>{{ s | loc("popis", lang) }}</p>
+        <span class="more" aria-hidden="true">{{ tx.more }} →</span>
+      </article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section dark">
+  <div class="wrap">
+    <h2 class="h2">{{ tx.processH }}</h2>
+    <ol class="steps" style="list-style:none;padding:0;margin-bottom:0">
+      {%- for st in tx.steps %}
+      <li class="step"><span>{{ "0" ~ loop.index }}</span><h3>{{ st[0] }}</h3><p>{{ st[1] }}</p></li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="section" id="cenik">
+  <div class="wrap prices">
+    <div class="prices-info">
+      <span class="eyebrow">{{ tx.pricesEyebrow }}</span>
+      <h2 class="h2">{{ tx.pricesH }}</h2>
+      <p class="muted">{{ tx.pricesText }}</p>
+      <div class="pay"><b>{{ tx.pay }}</b><span class="muted">{{ tx.payMethods }}</span><span class="muted">{{ tx.payFirms }}</span></div>
+    </div>
+    <div class="price-table">
+      <table>
+        <caption class="hp">{{ tx.priceCaption }}</caption>
+        <tbody>
+          {%- for p in cenik %}
+          <tr><td>{{ p | loc("polozka", lang) }}</td><td>{{ p.cena | price(p.od, tx) }}</td></tr>
+          {%- endfor %}
+        </tbody>
+      </table>
+      <div class="price-note">{{ tx.dph(k.platce_dph) }}</div>
+    </div>
+  </div>
+</section>
+
+{%- set aboutText = omne | loc("text", lang) %}
+{%- if aboutText %}
+<section class="section soft" id="o-mne">
+  <div class="wrap about">
+    <div class="about-photo">
+      {%- if omne.foto %}
+      <img src="{{ omne.foto }}" alt="{{ omne.jmeno }}, Váš Instalatér" sizes="(max-width: 760px) 100vw, 380px" loading="lazy">
+      {%- else %}
+      <div class="monogram" aria-hidden="true">{{ (omne.jmeno or "A") | first }}</div>
+      {%- endif %}
+    </div>
+    <div class="about-text">
+      <span class="eyebrow">{{ tx.aboutEyebrow }}</span>
+      <h2 class="h2">{{ tx.aboutH }}</h2>
+      {%- for para in aboutText | paras %}
+      <p>{{ para }}</p>
+      {%- endfor %}
+      <div class="chips">
+        <span class="chip">{{ tx.langsChip(k.mluvim_anglicky) }}</span>
+        {%- if k.ico and "[" not in k.ico %}<span class="chip">IČO {{ k.ico }}</span>{% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+{%- if realizace.length %}
+<section class="section" id="realizace">
+  <div class="wrap">
+    <h2 class="h2" style="margin-bottom:36px">{{ tx.worksH }}</h2>
+    <div class="cards">
+      {%- for w in realizace %}
+      <article class="work">
+        <div class="ba">
+          {%- if w.foto_pred %}<img src="{{ w.foto_pred }}" alt="{{ tx.before }}: {{ w | loc('nazev', lang) }}" sizes="(max-width: 760px) 50vw, 200px" loading="lazy">{% else %}<div class="ph">{{ tx.before }}</div>{% endif %}
+          {%- if w.foto_po %}<img src="{{ w.foto_po }}" alt="{{ tx.after }}: {{ w | loc('nazev', lang) }}" sizes="(max-width: 760px) 50vw, 200px" loading="lazy">{% else %}<div class="ph">{{ tx.after }}</div>{% endif %}
+        </div>
+        <div class="work-body"><b>{{ w | loc("nazev", lang) }}</b><span>{{ w.misto }}</span></div>
+      </article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+{%- if recenze.length %}
+<section class="section" id="recenze">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h2">{{ tx.reviewsH }}</h2>
+      {%- if k.google_hodnoceni %}<b style="font-size:18px">{{ tx.reviewsSum(k.google_hodnoceni, k.pocet_recenzi) }}</b>{% endif %}
+    </div>
+    <div class="cards">
+      {%- for r in recenze %}
+      {%- set n = r.hvezdy or 5 %}
+      <figure class="review" style="margin:0"><span class="stars" aria-label="{{ tx.stars(n) }}">{% for i in range(0, n) %}★{% endfor %}</span><blockquote style="margin:0"><p>{{ r.text }}</p></blockquote><figcaption><b>{{ r.jmeno }}{% if r.misto %}, {{ r.misto }}{% endif %}</b></figcaption></figure>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+<section class="section-tight">
+  <div class="wrap">
+    <div class="area">
+      <div>
+        <h2 style="font-size:32px;letter-spacing:-.6px">{{ tx.areaH }}</h2>
+        <p class="muted">{{ tx.areaText(k.vyjezd_cena) }}</p>
+      </div>
+      <ul class="pills">
+        {%- for a in k.oblasti %}<li>{{ a }}</li>{% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight" id="dotazy">
+  <div class="wrap faq">
+    <h2 class="h2" style="margin-bottom:24px">{{ tx.faqH }}</h2>
+    {%- for f in faq %}
+    <details{% if loop.first %} open{% endif %}><summary>{{ f | loc("otazka", lang) }}</summary><p>{{ f | loc("odpoved", lang) }}</p></details>
+    {%- endfor %}
+  </div>
+</section>

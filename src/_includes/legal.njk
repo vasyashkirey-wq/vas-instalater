@@ -1,0 +1,38 @@
+{%- set k = kontakty -%}
+{%- set tel = k.telefon | digits -%}
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }} – Váš Instalatér</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Váš Instalatér – úvod"><img eleventy:ignore src="/assets/logo.svg" alt="Váš Instalatér" width="289" height="64"></a>
+    <a class="btn btn-primary" href="tel:+{{ tel }}">{{ k.telefon }}</a>
+  </div>
+</header>
+<main class="legal">
+  <h1>{{ title }}</h1>
+  {%- if gdpr.platne_od %}<p class="muted">Platné od {{ gdpr.platne_od }}</p>{% endif %}
+  {{ content | safe }}
+  <p style="margin-top:40px"><a href="/">← Zpět na úvodní stránku</a></p>
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div class="col"><b>Váš Instalatér</b><span>{{ k.jmeno_prijmeni }} · IČO: {{ k.ico }}</span></div>
+    <div class="links">
+      <a href="/ochrana-osobnich-udaju/">Ochrana osobních údajů</a>
+      <a href="/reklamacni-rad/">Reklamační řád</a>
+      <span>© <span id="year">2026</span> Váš Instalatér</span>
+    </div>
+  </div>
+</footer>
+<script src="/assets/main.js" defer></script>
+</body>
+</html>

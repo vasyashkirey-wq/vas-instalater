@@ -1,0 +1,129 @@
+{#- Shared page shell. Expects: lang, and optionally pageTitle, pageDesc, alt (urls per language), jsonld -#}
+{%- set tx = t[lang] -%}
+{%- set k = kontakty -%}
+{%- set tel = k.telefon | digits -%}
+{%- set altUrls = alt or { cz: t.cz.url, ua: t.ua.url, en: t.en.url } -%}
+<!doctype html>
+<html lang="{{ tx.htmlLang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ pageTitle or tx.title }}</title>
+<meta name="description" content="{{ pageDesc or tx.description }}">
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+{%- for code, l in t %}
+<link rel="alternate" hreflang="{{ l.hreflang }}" href="{{ site.url }}{{ altUrls[code] }}">
+{%- endfor %}
+<link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ altUrls.cz }}">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#0E7490">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ pageTitle or tx.ogTitle }}">
+<meta property="og:description" content="{{ pageDesc or tx.ogDesc }}">
+<meta property="og:image" content="{{ site.url }}/og-image.png">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:locale" content="{{ tx.ogLocale }}">
+<link rel="preload" href="/assets/fonts/{{ tx.font }}" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Plumber",
+  "@id": "{{ site.url }}/#firma",
+  "name": "Váš Instalatér",
+  "url": "{{ site.url }}/",
+  "telephone": "+{{ tel }}",
+  "email": "{{ k.email }}",
+  "image": "{{ site.url }}/og-image.png",
+  "logo": "{{ site.url }}/assets/logo.svg",
+  "address": {"@type": "PostalAddress", "addressLocality": "Praha", "addressCountry": "CZ"},
+  "areaServed": ["Praha", "Středočeský kraj"]
+}
+</script>
+{%- if svc %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": {{ (svc | loc("nazev", lang)) | dump | safe }},
+  "description": {{ (svc | loc("popis", lang)) | dump | safe }},
+  "areaServed": "Praha",
+  "provider": {"@id": "{{ site.url }}/#firma"}
+}
+</script>
+{%- endif %}
+{%- if k.umami_id %}
+<script defer src="https://cloud.umami.is/script.js" data-website-id="{{ k.umami_id }}"></script>
+{%- endif %}
+</head>
+<body>
+<a class="skip" href="#main">{{ tx.skip }}</a>
+
+<div class="topbar">
+  <div class="wrap">
+    <div style="display:flex;flex-wrap:wrap;gap:8px 20px">
+      <span>{{ k["hodiny_" + lang] or k.hodiny_cz }}<span class="hide-sm"> · {{ tx.topArea }}</span></span>
+      <span class="hide-sm">{{ tx.areaShort }}</span>
+    </div>
+    <nav class="lang" aria-label="{{ tx.langLabel }}">
+      <a href="{{ altUrls.cz }}" lang="cs"{% if lang == "cz" %} aria-current="page"{% endif %}>CZ</a>
+      <a href="{{ altUrls.ua }}" lang="uk"{% if lang == "ua" %} aria-current="page"{% endif %}>UA</a>
+      <a href="{{ altUrls.en }}" lang="en"{% if lang == "en" %} aria-current="page"{% endif %}>EN</a>
+    </nav>
+  </div>
+</div>
+
+<header class="header">
+  <div class="wrap">
+    <a class="brand" href="{{ tx.url }}" aria-label="{{ tx.home }}"><img eleventy:ignore src="/assets/logo.svg" alt="Váš Instalatér" width="289" height="64"></a>
+    <nav class="nav" aria-label="{{ tx.mainNav }}">
+      {%- for item in tx.nav %}
+      {%- if (item[0] != "realizace" or realizace.length) and (item[0] != "recenze" or recenze.length) %}
+      <a href="{{ tx.url }}#{{ item[0] }}">{{ item[1] }}</a>
+      {%- endif %}
+      {%- endfor %}
+    </nav>
+    <div class="head-cta">
+      <a class="head-phone" href="tel:+{{ tel }}" data-umami-event="tel-header"><small>{{ tx.callOrWrite }}</small><b>{{ k.telefon }}</b></a>
+      <a class="btn btn-primary" href="#kontakt">{{ tx.order }}</a>
+    </div>
+  </div>
+</header>
+
+<div class="alert" role="note">
+  <div class="wrap">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+    <span>{{ tx.alert }}&nbsp;—</span>
+    <a href="tel:+{{ tel }}" style="white-space:nowrap" data-umami-event="tel-alert">{{ k.telefon }}</a>
+  </div>
+</div>
+
+<main id="main">
+{{ content | safe }}
+{% include "partials/contact.njk" %}
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="col">
+      <b>Váš Instalatér</b>
+      <span>{{ k.jmeno_prijmeni }} · IČO: {{ k.ico }} · {{ k.adresa_sidla }}</span>
+      <span>{{ tx.footerLegal }}</span>
+    </div>
+    <div class="links">
+      <a href="/ochrana-osobnich-udaju/">{{ tx.privacy }}</a>
+      <a href="/reklamacni-rad/">{{ tx.complaints }}</a>
+      <span>© <span id="year">2026</span> Váš Instalatér</span>
+    </div>
+  </div>
+</footer>
+
+<div class="callbar">
+  <a class="btn btn-primary" href="tel:+{{ tel }}" data-umami-event="tel-callbar">{{ tx.call }}</a>
+  {%- if k.whatsapp %}<a class="btn btn-dark" href="https://wa.me/{{ tel }}" data-umami-event="whatsapp-callbar">WhatsApp</a>{% endif %}
+</div>
+
+<script src="/assets/main.js" defer></script>
+</body>
+</html>

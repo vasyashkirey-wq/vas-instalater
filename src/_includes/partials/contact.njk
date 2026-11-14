@@ -1,0 +1,34 @@
+<section class="section dark contact" id="kontakt">
+  <div class="wrap">
+    <div class="contact-info">
+      <h2>{{ tx.contactH }}</h2>
+      <a class="big-phone" href="tel:+{{ tel }}" data-umami-event="tel-contact">{{ k.telefon }}</a>
+      <div class="btns">
+        {%- if k.whatsapp %}<a class="btn btn-outline-light" href="https://wa.me/{{ tel }}" data-umami-event="whatsapp-contact">WhatsApp</a>{% endif %}
+        {%- if k.viber %}<a class="btn btn-outline-light" href="viber://chat?number=%2B{{ tel }}" data-umami-event="viber-contact">Viber</a>{% endif %}
+        {%- if k.telegram %}<a class="btn btn-outline-light" href="https://t.me/{{ k.telegram | replace('@','') }}" data-umami-event="telegram-contact">Telegram</a>{% endif %}
+      </div>
+      <address>
+        <a href="mailto:{{ k.email }}">{{ k.email }}</a>
+        <span>{{ k["hodiny_" + lang] or k.hodiny_cz }}</span>
+      </address>
+    </div>
+    <form class="js-form" data-sending="{{ tx.sending }}" data-ok="{{ tx.ok }}" data-err="{{ tx.err(k.telefon) }}">
+      <h3 style="font-size:22px">{{ tx.formH }}</h3>
+      <input type="hidden" name="access_key" value="{{ k.web3forms_klic }}">
+      <input type="hidden" name="subject" value="{{ tx.subjFull }}{% if svc %}: {{ svc.nazev_cz }}{% endif %}">
+      <input type="hidden" name="stranka" value="{{ page.url }}">
+      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="grid-2">
+        <label>{{ tx.name }}<input type="text" name="jmeno" required autocomplete="name"></label>
+        <label>{{ tx.phone }}<input type="tel" name="telefon" placeholder="+420" required autocomplete="tel"></label>
+      </div>
+      <label>{{ tx.address }}<input type="text" name="adresa" placeholder="{{ tx.addressPh }}" autocomplete="street-address"></label>
+      <label>{{ tx.task }}<textarea name="popis" rows="4" placeholder="{{ tx.taskPh }}"></textarea></label>
+      {%- if k.whatsapp %}<p class="muted" style="font-size:14px">{{ tx.photoHint }} <a href="https://wa.me/{{ tel }}">WhatsApp</a>.</p>{% endif %}
+      <button type="submit" class="btn btn-primary">{{ tx.send }}</button>
+      <p class="form-status" role="status" aria-live="polite"></p>
+      <p class="muted" style="font-size:12px">{{ tx.consent }} <a href="/ochrana-osobnich-udaju/">{{ tx.consentLink }}</a>{{ tx.consentAfter }}</p>
+    </form>
+  </div>
+</section>

@@ -1,0 +1,14 @@
+{
+  "name": "vas-instalater-web",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.8",
+    "@11ty/eleventy-img": "^6.0.4"
+  },
+  "type": "module",
+  "private": true
+}
