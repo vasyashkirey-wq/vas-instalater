@@ -1,6 +1,6 @@
 // Váš Instalatér — form sending.
 // Each request goes to email (Web3Forms, if a key is set) and to Telegram
-// (/api/lead, if configured in Cloudflare). It counts as sent if either works.
+// (/api/lead, if configured in Netlify/Cloudflare). It counts as sent if either works.
 (function () {
   function post(url, data) {
     return fetch(url, { method: 'POST', headers: { 'Accept': 'application/json' }, body: data })
