@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.vasinstalater.cz/sitemap.xml
+Sitemap: https://vasinstalater.online/sitemap.xml

@@ -56,7 +56,7 @@ functions/api/lead.js      ← відправка заявок у Telegram
    Перевірте, що `.pages.yml` і папка `functions` потрапили в репозиторій.
 
 ### 2. Хостинг: Netlify (основний) або Cloudflare Pages
-**Netlify:** app.netlify.com → Add new site → Import from Git → `vas-instalater`. Налаштування збірки беруться з `netlify.toml` (Build command `npm run build`, Publish directory `_site`). Потім Domain management → `vasinstalater.cz`.
+**Netlify:** app.netlify.com → Add new site → Import from Git → `vas-instalater`. Налаштування збірки беруться з `netlify.toml` (Build command `npm run build`, Publish directory `_site`). Потім Domain management → `vasinstalater.online`.
 
 **Cloudflare Pages** (альтернатива): Workers & Pages → Create → Pages → Connect to Git → `vas-instalater`; Framework preset **None**, Build command `npm run build`, Build output directory `_site`, змінна `NODE_VERSION` = `20`.
 
@@ -79,7 +79,7 @@ web3forms.com → вкажіть email → скопіюйте ключ → ад�
 Можна підключити тільки email, тільки Telegram або обидва. Заявка вважається надісланою, якщо спрацював хоча б один спосіб.
 
 ### 6. Статистика (Umami, безкоштовний тариф Hobby)
-1. cloud.umami.is → зареєструйтеся → Add website → `vasinstalater.cz`.
+1. cloud.umami.is → зареєструйтеся → Add website → `vasinstalater.online`.
 2. Скопіюйте **Website ID** → адмінка: Контакти → «Umami Website ID».
 3. У звіті Umami → Events ви побачите натискання: `tel-hero`, `tel-header`, `tel-callbar`, `whatsapp-…` і надіслані заявки `lead-sent`.
 
